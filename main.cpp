@@ -5,6 +5,7 @@
 #include <vector>
 #include <algorithm>
 #include <conio.h>
+#include "uzytkownik.h"
 
 using namespace std;
 
@@ -15,14 +16,9 @@ struct wpis {
     int LP, IDdodajacego;
 };
 
-struct uzytkownicy {
-    string login, haslo;
-    int LP;
-};
-
 vector <wpis> adresaci;
 vector <int> nastepnyIDadresata, nastepnyIDuzytkownika;
-vector <uzytkownicy> uzytkownik;
+vector <Uzytkownik> uzytkownik;
 
 int IDobecnegoUzytkownika = 0;
 
@@ -97,7 +93,7 @@ int sprawdzanie_istnienia_bazy_uzytkownikow_i_dodawanie_z_niej_wpisow(int liczba
             string czescTekstu = "";
             int LPdanych = 1;
 
-            uzytkownik.push_back(uzytkownicy());
+            uzytkownik.push_back(Uzytkownik());
 
             for(int numerZnaku = 0; numerZnaku < dlugoscLinii; numerZnaku++) {
                 if(linia[numerZnaku] != '|')
@@ -253,7 +249,7 @@ int rejestracja(int iloscU) {
 
         system("pause");
     }
-    uzytkownik.push_back(uzytkownicy());
+    uzytkownik.push_back(Uzytkownik());
 
     uzytkownik[iloscU].login = login;
     uzytkownik[iloscU].haslo = haslo1;
